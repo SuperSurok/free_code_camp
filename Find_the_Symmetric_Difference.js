@@ -38,3 +38,10 @@ function sym() {
 
 
 sym([1, 2, 3], [5, 2, 1, 4]);
+
+const diff = (arr1, arr2) => ([
+    ...arr1.filter(item => !arr2.includes(item)),
+    ...arr2.filter(item => !arr1.includes(item))
+]);
+
+const sym2 = (...args) => [...new Set(args.reduce(diff))];
